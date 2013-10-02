@@ -1,15 +1,16 @@
-import com.zubkov.sportprog.testing.ProgrammingChallengesTest;
-import org.junit.Test;
-
-/**
+/*
  * Developer: Andrey Zubkov
  * Date: 2013-09-21
  */
 
-public class AlgorithmTest extends ProgrammingChallengesTest {
+import com.zubkov.sportprog.testing.StopCoderTest;
+import org.junit.Test;
+
+public class AlgorithmTest extends StopCoderTest{
 
     @Test
-    public void testMain() throws Exception {
+    public void test1() throws Exception {
         test("test1");
     }
+
 }

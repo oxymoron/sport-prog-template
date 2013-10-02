@@ -2,10 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
+/*
  * Developer: Andrey Zubkov
  * Date: 2013-09-22
  */
+
 public class Main {
     
     static class Test {
