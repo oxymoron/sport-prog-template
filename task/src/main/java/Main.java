@@ -1,6 +1,8 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 
 /*
  * Developer: Andrey Zubkov
@@ -8,19 +10,19 @@ import java.util.Scanner;
  */
 
 public class Main {
-    
+
     static class Test {
         public int n;
         public int[][] values;
     }
 
     private static List<Test> tests = new ArrayList<Test>();
-    
-    static class Solution {
+
+    static class Sol {
         public int[] result;
     }
 
-    private static List<Solution> solutions = new ArrayList<Solution>();
+    private static List<Sol> solutions = new ArrayList<Sol>();
 
     public static void main(String[] args) {
         readInput();
@@ -43,6 +45,16 @@ public class Main {
         }
     }
 
+    private static void writeOutput() {
+        int cnt = 1;
+        for (Sol solution : solutions) {
+            System.out.println(String.format("Case #%d", cnt++));
+            for(int i = 0; i < solution.result.length; i++){
+                System.out.println(solution.result[i]);
+            }
+        }
+    }
+
     private static void solve() {
         for (Test test : tests) {
             solveOne(test);
@@ -50,21 +62,11 @@ public class Main {
     }
 
     private static void solveOne(Test test) {
-        Solution s = new Solution();
+        Sol s = new Sol();
         s.result = new int[test.n];
         for (int i = 0; i < test.n; i++){
             s.result[i] = test.values[i][0] +  test.values[i][1];
         }
         solutions.add(s);
-    }
-
-    private static void writeOutput() {
-        int cnt = 1;
-        for (Solution solution : solutions) {
-            System.out.println(String.format("Case #%d", cnt++));
-            for(int i = 0; i < solution.result.length; i++){
-                System.out.println(solution.result[i]);
-            }
-        }
     }
 }

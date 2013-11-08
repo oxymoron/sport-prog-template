@@ -8,17 +8,10 @@ package com.zubkov.sportprog.testing;
 import java.io.File;
 import java.lang.reflect.Method;
 
-public class StopCoderTest extends AbstractTest{
+public class StopCoderTest extends AbstractStaticTest{
 
     @Override
-    protected void invoke(File inFile, File outFile) {
-        try{
-            Class<?> algorithmClass = Class.forName("Algorithm");
-            Object algorithm = algorithmClass.newInstance();
-            Method method = algorithmClass.getDeclaredMethod("solution", new Class[]{String.class, String.class});
-            method.invoke(algorithm, inFile.getAbsolutePath(), outFile.getAbsolutePath());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    protected String getClassName() {
+        return "Algorithm";
     }
 }

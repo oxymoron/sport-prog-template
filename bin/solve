@@ -1,0 +1,22 @@
+mkdir $1
+cp -R $SPORT_PROG/sport-prog $1
+cp -R $SPORT_PROG/task $1
+cp $SPORT_PROG/sport-prog-template.ipr $1
+cp $SPORT_PROG/sport-prog-template.iml $1
+cp $SPORT_PROG/pom.xml $1
+
+CLASS="Algorithm"
+TEST_CLASS="StopCoderTest"
+if [ "$2" = "hr" ]; then
+    CLASS="Solution"
+    TEST_CLASS="HackerRankTest"
+fi
+
+mv $1/task/src/main/java/Main.java $1/task/src/main/java/$CLASS.java
+sed -i '' "s/Main/$CLASS/g" $1/task/src/main/java/$CLASS.java
+
+sed -i '' "s/ProgrammingChallengesTest/$TEST_CLASS/g" "$1/task/src/test/java/MainTest.java"
+
+
+
+
